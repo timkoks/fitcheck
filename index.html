@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FitCheck — калькулятор ІМТ (Варіант A)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="logo" href="#">FitCheck</a>
+      <nav class="nav">
+        <a href="#calculator">Калькулятор</a>
+        <a href="#history">Історія</a>
+        <a href="#about">Про</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section id="calculator" class="card calc-card" aria-labelledby="calcTitle">
+      <div class="calc-grid">
+        <div class="left">
+          <h1 id="calcTitle">Калькулятор ІМТ — FitCheck</h1>
+          <p class="lead">Введи вагу та зріст, вибери одиниці та натисни <strong>Розрахувати</strong>.</p>
+
+          <form id="bmiForm" class="form" autocomplete="off" novalidate>
+            <div class="row">
+              <label for="unit">Одиниці</label>
+              <select id="unit" name="unit" aria-label="Вибір одиниць">
+                <option value="metric">кг / см</option>
+                <option value="imperial">lb / in</option>
+              </select>
+            </div>
+
+            <div class="row" id="weightRow">
+              <label for="weight">Вага</label>
+              <div class="input-inline">
+                <input id="weight" name="weight" inputmode="decimal" placeholder="65" required />
+                <span class="unit-label" id="weightUnit">кг</span>
+              </div>
+            </div>
+
+            <div class="row" id="heightRow">
+              <label for="height">Зріст</label>
+              <div class="input-inline">
+                <input id="height" name="height" inputmode="decimal" placeholder="175" required />
+                <span class="unit-label" id="heightUnit">см</span>
+              </div>
+            </div>
+
+            <div class="row actions">
+              <button type="submit" class="btn primary" id="calcBtn">Розрахувати</button>
+              <button type="button" id="clearHistory" class="btn secondary">Очистити історію</button>
+            </div>
+          </form>
+
+          <div id="result" class="result" aria-live="polite"></div>
+        </div>
+
+        <aside class="right" aria-labelledby="historyTitle">
+          <h2 id="historyTitle">Історія розрахунків</h2>
+          <p class="small">Збережено останні 10 розрахунків у локальному сховищі браузера.</p>
+          <ul id="historyList" class="history-list" role="list"></ul>
+
+          <details class="info-box">
+            <summary>Пояснення категорій ІМТ</summary>
+            <ul>
+              <li>Менше 18.5 — Недостатня вага</li>
+              <li>18.5–24.9 — Норма</li>
+              <li>25.0–29.9 — Надмірна вага</li>
+              <li>30.0 і більше — Ожиріння</li>
+            </ul>
+          </details>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="card about-card">
+      <h2>Про FitCheck</h2>
+      <p>FitCheck — простий і надійний калькулятор ІМТ з поясненнями та історією розрахунків. ІМТ обчислюється як <code>вага (кг) / (зріст (м))²</code>. Для імперських одиниць застосовується множник 703.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© FitCheck — Варіант A. Легко тестувати локально: відкрийте <code>index.html</code> у браузері.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
